@@ -384,3 +384,15 @@ footer {
     margin: 0 auto;
   }
 }
+/* Desktop/mobile media switching */
+.mobile-only { display: none; }
+
+@media (max-width: 768px) {
+  .desktop-only { display: none; }
+  .mobile-only {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
