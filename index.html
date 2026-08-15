@@ -15,14 +15,7 @@
       margin: 1rem 0;
       cursor: pointer;
     }
-    .home-vimeo iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: 0;
-      display: none;
-    }
-    .home-vimeo iframe.active { display: block; }
+    
     .vimeo-poster {
       position: absolute;
       top: 0; left: 0;
@@ -104,11 +97,7 @@
       <div class="vimeo-play-btn" onclick="playVimeo()">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
       </div>
-      <iframe id="vimeo-iframe"
-        src="https://player.vimeo.com/video/1173625152?autoplay=1&title=0&byline=0&portrait=0"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+      
     </div>
 
     <!-- Bottom row -->
@@ -153,16 +142,14 @@
     function toggleNav() {
       document.getElementById('nav-links').classList.toggle('open');
     }
-    function playVimeo() {
-      var wrap = document.getElementById('vimeo-wrap');
-      var iframe = document.getElementById('vimeo-iframe');
-      // Hide poster and play button
-      wrap.querySelector('.vimeo-poster').style.display = 'none';
-      wrap.querySelector('.vimeo-overlay').style.display = 'none';
-      wrap.querySelector('.vimeo-play-btn').style.display = 'none';
-      // Show and activate iframe
-      iframe.classList.add('active');
-    }
+function playVimeo() {
+  var wrap = document.getElementById('vimeo-wrap');
+  var height = wrap.offsetHeight;
+  var width = wrap.offsetWidth;
+  wrap.style.height = height + 'px';
+  wrap.style.width = width + 'px';
+  wrap.innerHTML = '<iframe src="https://player.vimeo.com/video/1173625152?autoplay=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>';
+}
   </script>
 
 </body>
