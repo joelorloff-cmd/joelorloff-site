@@ -151,6 +151,10 @@
     }
 function playVimeo() {
   var wrap = document.getElementById('vimeo-wrap');
+  var height = wrap.offsetHeight;
+  var width = wrap.offsetWidth;
+  wrap.style.height = height + 'px';
+  wrap.style.width = width + 'px';
   wrap.innerHTML = '<iframe src="https://player.vimeo.com/video/1173625152?autoplay=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>';
 }
   </script>
